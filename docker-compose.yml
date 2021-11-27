@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+    networks:
+      - app_net
+  redis:
+    image: redis:alpine
+    networks:
+      - app_net
+    
+    
+networks:
+  app_net:
+    driver: bridge
