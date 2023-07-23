@@ -10,6 +10,8 @@ services:
       - redis
     networks:
       - app_net
+    env_file:
+      - env.cfg
   redis:
     image: redis:alpine
     networks:
