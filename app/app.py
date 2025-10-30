@@ -10,6 +10,9 @@ app = flask.Flask('app server')
 HOST = os.environ['HOST']
 redis = StrictRedis(host=HOST,port=6379)
 
+@app.route('/health')
+def health_check():
+    return 'OK', 200
 
 @app.route('/')
 def index():
